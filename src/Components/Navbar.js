@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
   Nav: {
     background: "none",
     backgroundImage:
-      "linear-gradient( rgba(19, 84, 122,1) 0%, rgba(50, 190, 242,0.4) 80%,rgba(198, 247, 242,0) 100%)",
+      "linear-gradient( rgba(174, 209, 183,1) 0%, rgba(183, 199, 187,0.4) 60%,rgba(198, 247, 242,0) 100%)",
     height: "25vh",
     width: "100vw",
     display: "flex",

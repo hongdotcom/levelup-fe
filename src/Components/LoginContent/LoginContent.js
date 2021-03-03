@@ -38,8 +38,8 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "rgba(255,255,255,0.7)",
   },
   GoogleContatiner: {
-    width: "16vw",
-    height: "10%",
+    width: "20vw",
+    height: "10vh",
     backgroundColor: "#e82c2c",
     borderRadius: "3px",
     marginTop: "5vh",
@@ -66,6 +66,19 @@ const useStyles = makeStyles(() => ({
 }));
 const responseFacebook = (response) => {
   console.log(response);
+  console.log("this is facebook");
+  // setData(response);
+  // setPicture(response.picture.data.url);
+  // if (response.accessToken) {
+  //   setLogin(true);
+  // } else {
+  //   setLogin(false);
+  // }
+};
+const responseGoogle = (response) => {
+  console.log(response);
+  console.log("this is facebook");
+
   // setData(response);
   // setPicture(response.picture.data.url);
   // if (response.accessToken) {
@@ -83,7 +96,9 @@ const LoginContent = () => {
         <GoogleLogin
           clientId="599126138937-5441fi0karc5dfdbr622qs4a9d47ves3.apps.googleusercontent.com"
           buttonText="Login with Google"
+          icon="fa-google"
           isSignedIn={true}
+          callback={responseGoogle}
           className={classes.GoogleContatiner}
         />
         <p></p>

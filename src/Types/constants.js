@@ -1,0 +1,2 @@
+export const GOOGLE_OAUTH2 = "GOOGLE_OAUTH2";
+export const FACEBOOK_OAUTH2 = "FACEBOOK_OAUTH2";
