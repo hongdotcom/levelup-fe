@@ -75,18 +75,18 @@ const responseFacebook = (response) => {
   //   setLogin(false);
   // }
 };
-const responseGoogle = (response) => {
-  console.log(response);
-  console.log("this is facebook");
+// const responseGoogle = (response) => {
+//   console.log(response);
+//   console.log("this is facebook");
 
-  // setData(response);
-  // setPicture(response.picture.data.url);
-  // if (response.accessToken) {
-  //   setLogin(true);
-  // } else {
-  //   setLogin(false);
-  // }
-};
+// setData(response);
+// setPicture(response.picture.data.url);
+// if (response.accessToken) {
+//   setLogin(true);
+// } else {
+//   setLogin(false);
+// }
+// };
 const LoginContent = () => {
   const classes = useStyles();
   return (
@@ -95,10 +95,9 @@ const LoginContent = () => {
         <h1 className={classes.LoginHeader}>Login</h1>
         <GoogleLogin
           clientId="599126138937-5441fi0karc5dfdbr622qs4a9d47ves3.apps.googleusercontent.com"
-          buttonText="Login with Google"
-          icon="fa-google"
+          buttonText="LOGIN WITH GOOGLE"
           isSignedIn={true}
-          callback={responseGoogle}
+          icon="fa-google"
           className={classes.GoogleContatiner}
         />
         <p></p>

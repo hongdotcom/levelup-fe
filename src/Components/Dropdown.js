@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
   mobileNav: {
     background: "none",
     backgroundImage:
-      "linear-gradient( rgba(19, 84, 122,1) 0%, rgba(50, 190, 242,0.4) 80%,rgba(198, 247, 242,0) 100%)",
+      "linear-gradient( rgba(174, 209, 183,1) 0%, rgba(183, 199, 187,0.4) 60%,rgba(198, 247, 242,0) 100%)",
     height: "25vh",
     display: "flex",
     zIndex: 10,
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() => ({
   },
   dropdownContainer: {
     backgroundImage:
-      "linear-gradient( rgba(19, 84, 122,1) 0%, rgba(150, 247, 242,0.3) 70%,rgba(198, 247, 242,0) 100%)",
+      "linear-gradient( rgba(174, 209, 183,1) 0%, rgba(183, 199, 187,0.6) 70%,rgba(198, 247, 242,0.5) 100%)",
     position: "absolute",
     display: "inline-grid",
     alignItems: "center",

@@ -7,6 +7,7 @@ import { Routes } from "./Constants/Routes";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
+import Auth from "./Pages/Auth";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100vw",
@@ -25,6 +26,7 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Route path={Routes.Login} component={Login} />
         <Route path={Routes.Sigup} component={Signup} />
+        <Route path="/auth" component={Auth} />
         {/* Redirect all 404 to Home*/}
         <Redirect to="/" />
       </Switch>

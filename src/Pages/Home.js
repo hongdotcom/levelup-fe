@@ -15,7 +15,11 @@ const useStyles = makeStyles(() => ({
 }));
 const details = {
   bgStyle: {
-    backgroundImage: "url(" + bg + ")",
+    // "url(" + bg + ")",
+    backgroundImage:
+      "linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.3)),url(" +
+      bg +
+      ")",
     zIndex: -100,
   },
 };
