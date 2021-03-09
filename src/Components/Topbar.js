@@ -7,26 +7,32 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     top: 0,
     left: "10vw",
-    width: "100vw",
+    width: "90vw",
     height: "16vh",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "start",
     padding: "20px",
     backgroundColor: "#CCE2D9",
   },
   Header: {
     fontFamily: "Montserrat, sans-serif",
+    display: "flex 1",
     fontSize: "3vh",
     fontWeight: "800",
-    alignItems: "left",
+    alignItems: "right",
+    marginLeft: "2vw",
   },
-  Avatar: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "3px",
+  Avatar: { marginLeft: "0.4vw" },
+  AvatarCont: {
+    display: "flex ",
+    flexGrow: 1,
+    flexDirection: "row-reverse",
+    justifyContent: "right",
+    alignItems: "right",
+    marginLeft: "2vw",
+    marginRight: "2vw",
   },
-  Reminder: {},
 }));
 
 const Topbar = () => {
@@ -34,11 +40,32 @@ const Topbar = () => {
   return (
     <div className={classes.Topbar}>
       <h1 className={classes.Header}> Student Details</h1>
-      <div className={classes.Avatar}>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+      <div className={classes.AvatarCont}>
+        <Avatar
+          className={classes.Avatar}
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+        />
+        <Avatar
+          className={classes.Avatar}
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+        />
+        <Avatar
+          className={classes.Avatar}
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+        />
+        <Avatar
+          className={classes.Avatar}
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+        />
+        <Avatar
+          className={classes.Avatar}
+          alt="Remy Sharp"
+          src="/static/images/avatar/1.jpg"
+        />
       </div>
       <div className={classes.Reminder}>
         <svg
