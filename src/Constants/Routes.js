@@ -1,7 +1,9 @@
 export const Routes = {
   Home: "/",
-  Contacts: "/contacts",
-  Data: "/data",
-  Automation: "/automation",
-  Software: "/software",
+  Auth: "/auth",
+  Signup: "/signup",
+  Login: "/login",
+  Student: "/student",
+  Teacher: "/teacher",
+  StudentList: "/studentlist",
 };

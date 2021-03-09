@@ -1,8 +1,9 @@
 import React from "react";
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
+import { Redirect } from "react-router-dom";
 import FacebookLogin from "react-facebook-login";
 import { makeStyles } from "@material-ui/core/styles";
-
+// import { Link } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   LoginContainer: {
     display: "flex",
@@ -27,13 +28,13 @@ const useStyles = makeStyles(() => ({
   LoginForm: {
     position: "absolute",
     maringLeft: "10vw",
-    borderRadius: "5%",
+    borderRadius: "15px",
     top: "30vh",
-    width: "80vw",
+    width: "60vw",
     height: "40vw",
     display: "flex",
     alignItems: "center",
-    justifyContent: "top",
+    justifyContent: "center",
     flexDirection: "column",
     backgroundColor: "rgba(255,255,255,0.7)",
   },
@@ -41,7 +42,7 @@ const useStyles = makeStyles(() => ({
     width: "20vw",
     height: "10vh",
     backgroundColor: "#e82c2c",
-    borderRadius: "3px",
+    borderRadius: "5px",
     marginTop: "5vh",
     paddingLeft: "6%",
     paddingTop: "3px",
@@ -64,28 +65,22 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
   },
 }));
-const responseFacebook = (response) => {
-  console.log(response);
-  console.log("this is facebook");
-  // setData(response);
-  // setPicture(response.picture.data.url);
-  // if (response.accessToken) {
-  //   setLogin(true);
-  // } else {
-  //   setLogin(false);
-  // }
-};
-// const responseGoogle = (response) => {
+// const responseFacebook = (response) => {
 //   console.log(response);
 //   console.log("this is facebook");
-
-// setData(response);
-// setPicture(response.picture.data.url);
-// if (response.accessToken) {
-//   setLogin(true);
-// } else {
-//   setLogin(false);
-// }
+//   // return <div> My Protected Component </div>;
+//   return <Redirect to="/teacher" />;
+//   // setData(response);
+//   // setPicture(response.picture.data.url);
+//   // if (response.accessToken) {
+//   //   return (
+//   //     // <Switch>
+//   //     // <Redirect to="/teacher" />
+//   //     // </Switch>
+//   //   );
+//   // } else {
+//   // setLogin(false);
+//   // }
 // };
 const LoginContent = () => {
   const classes = useStyles();
@@ -93,23 +88,26 @@ const LoginContent = () => {
     <div className={classes.LoginContainer}>
       <div className={classes.LoginForm}>
         <h1 className={classes.LoginHeader}>Login</h1>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId="599126138937-5441fi0karc5dfdbr622qs4a9d47ves3.apps.googleusercontent.com"
           buttonText="LOGIN WITH GOOGLE"
           isSignedIn={true}
           icon="fa-google"
           className={classes.GoogleContatiner}
-        />
+        /> */}
         <p></p>
+
         <FacebookLogin
           appId="755126425132124"
           // autoLoad={true}
           fields="name,email,picture"
           scope="public_profile,user_friends"
-          callback={responseFacebook}
+          // callback={responseFacebook}
           icon="fa-facebook"
           className={classes.FacebookContatiner}
-        />
+        >
+          <Redirect to="/teacher" />
+        </FacebookLogin>
       </div>
     </div>
   );

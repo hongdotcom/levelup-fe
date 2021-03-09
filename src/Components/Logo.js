@@ -34,7 +34,6 @@ const Logo = () => {
       </svg>
     </div>
   );
-
   // <img src={logo} alt="logo" className={classes.Logo} />;
 };
 

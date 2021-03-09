@@ -2,5 +2,7 @@ export const menuData = [
   { title: "Home", link: "/" },
   { title: "Login", link: "/login" },
   { title: "Signup", link: "/signup" },
-  // { title: "Auth", link: "/auth" },
+  { title: "Student", link: "/student" },
+  { title: "Teacher", link: "/teacher" },
+  { title: "StudentList", link: "/studentlist" },
 ];

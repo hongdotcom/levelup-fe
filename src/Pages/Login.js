@@ -1,11 +1,12 @@
 import React from "react";
-import bg from "../static/images/bg.jpg";
+// import bg from "../static/images/bg.jpg";
 import Background from "../Components/Background";
 import Navbar from "../Components/Navbar";
 import Dropdown from "../Components/Dropdown";
 import LoginContent from "../Components/LoginContent/LoginContent";
 import { IsMobile } from "../Hooks/IsMobile";
 import { makeStyles } from "@material-ui/core/styles";
+
 // import { googleOAuth2 } from "../Actions/Google";
 const useStyles = makeStyles(() => ({
   home: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles(() => ({
 }));
 const details = {
   bgStyle: {
-    backgroundImage: "url(" + bg + ")",
+    backgroundColor: "#e0ebe6",
     zIndex: -100,
   },
 };

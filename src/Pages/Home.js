@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../static/images/childrenbg.jpg";
+// import bg from "../static/images/childrenbg.jpg";
 import Background from "../Components/Background";
 import Navbar from "../Components/Navbar";
 import { IsMobile } from "../Hooks/IsMobile";
@@ -15,11 +15,7 @@ const useStyles = makeStyles(() => ({
 }));
 const details = {
   bgStyle: {
-    // "url(" + bg + ")",
-    backgroundImage:
-      "linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.3)),url(" +
-      bg +
-      ")",
+    backgroundColor: "#CCE2D9",
     zIndex: -100,
   },
 };
@@ -168,16 +164,14 @@ const Home = () => {
           <a className="skip-link screen-reader-text" href="#content">
             Skip to content
           </a>
-          <header
-            id="masthead"
-            className="site-header has-title-and-tagline has-menu"
-            role="banner"
-          >
-            {/* <div className="site-branding">
+          {/* <header */}
+          {/* id="masthead" className="site-header has-title-and-tagline has-menu"
+          role="banner" > */}
+          {/* <div className="site-branding">
               <h1 className="site-title">LevelUp Works</h1>
             </div>
             {/* .site-branding */}
-            {/* <nav
+          {/* <nav
               id="site-navigation"
               className="primary-navigation"
               role="navigation"
@@ -234,9 +228,9 @@ const Home = () => {
                   </span>
                 </button>
                 {/* #primary-mobile-menu */}
-            {/* </div> */}
-            {/* .menu-button-container */}
-            {/* <div className="primary-menu-container">
+          {/* </div> */}
+          {/* .menu-button-container */}
+          {/* <div className="primary-menu-container">
                 <ul id="primary-menu-list" className="menu-wrapper">
                   <li
                     id="menu-item-2304"
@@ -322,7 +316,7 @@ const Home = () => {
                 </ul>
               </div>{" "}
             </nav> */}
-          </header>
+          {/* </header> */}
           {/* #masthead */}
           <div id="content" className="site-content">
             <div id="primary" className="content-area">
