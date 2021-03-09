@@ -1,6 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
+import avatar2 from "../static/images/avatar2.png";
+import avatar3 from "../static/images/avatar3.png";
+import avatar4 from "../static/images/avatar4.png";
+import avatar5 from "../static/images/avatar5.png";
+import avatar6 from "../static/images/avatar6.png";
 
 const useStyles = makeStyles(() => ({
   Topbar: {
@@ -33,6 +38,14 @@ const useStyles = makeStyles(() => ({
     marginLeft: "2vw",
     marginRight: "2vw",
   },
+  Reminder: {
+    marginLeft: "3vw",
+    transition: "all 0.3s ease-in-out",
+    "&:hover": {
+      opacity: "0.5",
+      transform: "scale(1.5)",
+    },
+  },
 }));
 
 const Topbar = () => {
@@ -41,31 +54,11 @@ const Topbar = () => {
     <div className={classes.Topbar}>
       <h1 className={classes.Header}> Student Details</h1>
       <div className={classes.AvatarCont}>
-        <Avatar
-          className={classes.Avatar}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-        />
-        <Avatar
-          className={classes.Avatar}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-        />
-        <Avatar
-          className={classes.Avatar}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-        />
-        <Avatar
-          className={classes.Avatar}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-        />
-        <Avatar
-          className={classes.Avatar}
-          alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
-        />
+        <Avatar className={classes.Avatar} alt="Yuzu" src={avatar2} />
+        <Avatar className={classes.Avatar} alt="Wayne" src={avatar3} />
+        <Avatar className={classes.Avatar} alt="Roshan" src={avatar4} />
+        <Avatar className={classes.Avatar} alt="Ji Hoon" src={avatar5} />
+        <Avatar className={classes.Avatar} alt="Seann" src={avatar6} />
       </div>
       <div className={classes.Reminder}>
         <svg

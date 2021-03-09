@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     display: "grid",
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: "0.1vw",
+    marginLeft: "0.8vw",
     // marginRight: "1vw",
     position: "fixed",
   },

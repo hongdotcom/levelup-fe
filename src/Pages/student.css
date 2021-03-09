@@ -1,0 +1,123 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "avatarArea nameArea nameArea h2Area h2Area h2Area ."
+    ". studentArea studentArea progressArea progressArea strengthArea strengthArea"
+    ". parentArea parentArea prArea prArea strengthArea strengthArea"
+    ". paymentArea paymentArea prArea prArea commentArea commentArea"
+    ". attendenceArea attendenceArea prArea prArea commentArea commentArea";
+  background-color: #cce2d9;
+  position: absolute;
+  top: 15vh;
+  left: 10vw;
+  width: 90vw;
+  height: 85vh;
+}
+
+.avatarArea {
+  grid-area: avatarArea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nameArea {
+  grid-area: nameArea;
+}
+
+.h2Area {
+  grid-area: h2Area;
+}
+
+.studentArea {
+  grid-area: studentArea;
+}
+
+.parentArea {
+  grid-area: parentArea;
+}
+
+.paymentArea {
+  grid-area: paymentArea;
+}
+
+.attendenceArea {
+  grid-area: attendenceArea;
+}
+
+.progressArea {
+  grid-area: progressArea;
+}
+
+.prArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.8fr 1.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "skillArea skillArea skillArea"
+    "quizArea quizArea quizArea";
+  grid-area: prArea;
+}
+
+.skillArea {
+  grid-area: skillArea;
+}
+
+.quizArea {
+  grid-area: quizArea;
+  top: 0;
+}
+
+.strengthArea {
+  grid-area: strengthArea;
+  position: relative;
+}
+
+.commentArea {
+  grid-area: commentArea;
+  margin: 10%;
+}
+
+.headerText {
+  font-family: Montserrat, sans-serif;
+  font-size: 3vh;
+  font-weight: 800;
+}
+
+.h2Text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 30px;
+  /* or 120% */
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.pText {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.spiderContainer {
+  position: absolute;
+  top: 20%;
+  left: 0;
+}
+.spiderInnerContainer {
+  position: absolute;
+  top: 25%;
+  left: 16%;
+}
