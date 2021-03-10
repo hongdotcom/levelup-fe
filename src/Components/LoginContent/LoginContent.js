@@ -1,26 +1,40 @@
 import React from "react";
+import clsx from "clsx";
+import IconButton from "@material-ui/core/IconButton";
 // import { GoogleLogin } from "react-google-login";
 import { Redirect } from "react-router-dom";
 import FacebookLogin from "react-facebook-login";
 import { makeStyles } from "@material-ui/core/styles";
-// import { Link } from "react-router-dom";
-const useStyles = makeStyles(() => ({
+import { Link } from "react-router-dom";
+import Logo from "../Logo";
+import { Button } from "@material-ui/core";
+import FormControl from "@material-ui/core/FormControl";
+// import { Input } from "@material-ui/core";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+const useStyles = makeStyles((theme) => ({
   LoginContainer: {
+    position: "absolute",
+    top: "-15vh",
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
     width: "100vw",
-    flexDirection: "column",
   },
   LoginHeader: {
     position: "relative",
     display: "flex",
-    marginTop: "10vh",
+    marginTop: "5vh",
     alignItems: "center",
     justifyContent: "top",
     fontFamily: "Montserrat, sans-serif",
-    fontSize: "5vh",
+    fontSize: "4vh",
     fontWeight: "1100",
     color: "#154c79",
     zIndex: 10,
@@ -64,6 +78,18 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  LoginButton: {
+    witdth: "20vw",
+  },
+  margin: {
+    margin: theme.spacing(1),
+  },
+  withoutLabel: {
+    marginTop: theme.spacing(3),
+  },
+  textField: {
+    width: "25ch",
+  },
 }));
 // const responseFacebook = (response) => {
 //   console.log(response);
@@ -84,10 +110,76 @@ const useStyles = makeStyles(() => ({
 // };
 const LoginContent = () => {
   const classes = useStyles();
+  const [values, setValues] = React.useState({
+    amount: "",
+    password: "",
+    weight: "",
+    weightRange: "",
+    showPassword: false,
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className={classes.LoginContainer}>
       <div className={classes.LoginForm}>
+        <Logo />
         <h1 className={classes.LoginHeader}>Login</h1>
+        <FormControl className={clsx(classes.margin, classes.textField)}>
+          <InputLabel htmlFor="standard-adornment-password">Email</InputLabel>
+          <Input
+            id="standard-adornment-password"
+            // type={values.showPassword ? 'text' : 'password'}
+            // value={values.password}
+            // onChange={handleChange("password")}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  // onClick={handleClickShowPassword}
+                  // onMouseDown={handleMouseDownPassword}
+                >
+                  <AccountCircle />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+        <FormControl className={clsx(classes.margin, classes.textField)}>
+          <InputLabel htmlFor="standard-adornment-password">
+            Password
+          </InputLabel>
+          <Input
+            id="standard-adornment-password"
+            type={values.showPassword ? "text" : "password"}
+            value={values.password}
+            onChange={handleChange("password")}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl>
+        <Link to="/teacher">
+          <Button className={classes.LoginButton}>Login</Button>
+        </Link>
+        <p>or</p>
         {/* <GoogleLogin
           clientId="599126138937-5441fi0karc5dfdbr622qs4a9d47ves3.apps.googleusercontent.com"
           buttonText="LOGIN WITH GOOGLE"
@@ -95,8 +187,6 @@ const LoginContent = () => {
           icon="fa-google"
           className={classes.GoogleContatiner}
         /> */}
-        <p></p>
-
         <FacebookLogin
           appId="755126425132124"
           // autoLoad={true}

@@ -1,13 +1,14 @@
 import React from "react";
 // import bg from "../static/images/bg.jpg";
 import Background from "../Components/Background";
-import Navbar from "../Components/Navbar";
-import Dropdown from "../Components/Dropdown";
+// import Navbar from "../Components/Navbar";
+// import Dropdown from "../Components/Dropdown";
 import LoginContent from "../Components/LoginContent/LoginContent";
-import { IsMobile } from "../Hooks/IsMobile";
+// import { IsMobile } from "../Hooks/IsMobile";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+// import { Button } from "@material-ui/core";
+// import { Link } from "react-router-dom";
+import Logo from "../Components/Logo";
 
 // import { googleOAuth2 } from "../Actions/Google";
 const useStyles = makeStyles(() => ({
@@ -28,12 +29,9 @@ const Login = () => {
   return (
     <div className={classes.home} id="homeContainer">
       <Background customStyles={details.bgStyle} />
-      {IsMobile() ? <Dropdown /> : <Navbar />}
+      <Logo />
       <div className="loginContainer"></div>
       <LoginContent />
-      <Link to="/teacher">
-        <Button>LOGIN</Button>
-      </Link>
     </div>
   );
 };
