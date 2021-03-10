@@ -8,26 +8,71 @@ import present from "../static/images/present.png";
 import chart from "../static/images/chart.png";
 import strength from "../static/images/spider.png";
 import polygon from "../static/images/polygon.png";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import "./student.css";
 
 const Student = () => {
   useEffect(() => {
     fetchItems();
+    fetchCheckpoint();
+    fetchSkills();
   }, []);
 
-  const [students, setStudents] = useState([]);
+  const [student, setStudents] = useState([]);
+  const [checkpoint, setCheckpoint] = useState([]);
+  const [skills, setSkills] = useState([]);
+
+  const fetchSkills = async () => {
+    const response = await fetch(
+      "http://localhost:4000/students/findskill/60430948f199b233ad6c076c",
+      {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    setSkills(data);
+    console.log(skills);
+  };
+
+  const fetchCheckpoint = async () => {
+    const response = await fetch(
+      "http://localhost:4000/students/lastcheckpoint/60430948f199b233ad6c076c",
+      {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    setCheckpoint(data);
+    console.log(checkpoint);
+  };
 
   const fetchItems = async () => {
-    const response = await fetch("http://localhost:4000/students/", {
-      method: "GET",
-      headers: { "Content-type": "application/json;charset=UTF-8" },
-    });
+    const response = await fetch(
+      "http://localhost:4000/students/id/60430948f199b233ad6c076c",
+      {
+        method: "GET",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+      }
+    );
     const data = await response.json();
 
     setStudents(data);
-    console.log(students);
+    console.log(student);
   };
-  // const classes = useStyles();
+  const getAge = (dateString) => {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
   return (
     <div>
       <VerticalNavbar />
@@ -37,16 +82,26 @@ const Student = () => {
           <img src={avatar1} alt="avt1" />
         </div>
         <div className="nameArea">
-          <h1 className="headerText">Wayne Leung</h1>
+          <h1 className="headerText">
+            {student.firstname} {student.surname}
+          </h1>
         </div>
         <div className="h2Area">
           <h1 className="headerText">Student Learning Record</h1>
         </div>
         <div className="studentArea">
-          <h2 className="h2Text">Student ID #1111</h2>
+          <h2 className="h2Text">Student ID #{student._id}</h2>
           <p className="pText">
-            D.O.B 03/05/2014
-            <br /> Class : Botany Downs Library Programming
+            Age: {getAge(student.dob)}
+            <br />
+            Class :
+            <a
+              href="https://bookings.aucklandcouncil.govt.nz/facilities/facility/botany-library"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Botany Downs Library Programming
+            </a>
             <br />
             Background: Beginner
           </p>
@@ -55,9 +110,16 @@ const Student = () => {
           <h2 className="h2Text">Parent Details</h2>
           <p className="pText">
             Tony Leung
-            <br /> 027 777 7777
+            <br /> <a href="tel:123-456-7890">027 777 7777&nbsp;&nbsp;</a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://api.whatsapp.com/send?phone=64272262767&text=Hi%20Wayne,%20I%20would%20like%20to%20chat%20with%20you%20for%20my%20company%27s%20open%20position."
+            >
+              <WhatsAppIcon />
+            </a>
             <br />
-            tonyleung1997@gmail.com
+            <a href="mailto: {student.email}">{student.email}</a>
           </p>
         </div>
         <div className="paymentArea">
@@ -71,7 +133,7 @@ const Student = () => {
           <h1 className="headerText">Attendance 83%</h1>
         </div>
         <div className="progressArea">
-          <h2 className="h2Text">Project 4 / 51</h2>
+          <h2 className="h2Text">{checkpoint.checkpoint_name} / 51</h2>
           <br />
           <svg
             width="267"
@@ -100,11 +162,24 @@ const Student = () => {
         </div>
         <div className="prArea">
           <div className="skillArea">
-            <h2 className="h2Text">Skill Gained</h2>
-            <br />
+            <h2 className="h2Text">Recent Skill Gained</h2>
             <img src={code} alt="avt1" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <img src={creative} alt="avt1" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <img src={present} alt="avt1" />
+            &nbsp;&nbsp;
+            <p className="skillText">
+              {skills.map((skill, index) => {
+                return (
+                  <div key={index}>
+                    <text>
+                      {skill.skill_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </text>
+                  </div>
+                );
+              })}
+            </p>
           </div>
           <div className="quizArea">
             <h2 className="h2Text">Quiz Scores</h2>
@@ -122,10 +197,7 @@ const Student = () => {
         </div>
         <div className="commentArea">
           <h1 className="headerText">Latest Feedback</h1>
-          <p className="pText">
-            “David is a very bright student, always engaging in the class
-            material. He seems to enjoy coding.”
-          </p>
+          <p className="pText">“{checkpoint.comment}”</p>
         </div>
       </div>
       {/* <div className={classes.detailContainer}>

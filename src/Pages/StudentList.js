@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import VerticalNavbar from "../Components/VerticalNavbar";
 import TopBar from "../Components/Topbar2";
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,6 +17,9 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 const useStyles = makeStyles(() => ({
   detailContainer: {},
 }));
+
+
+import { Link } from "react-router-dom";
 
 const Student = () => {
   useEffect(() => {
@@ -61,6 +65,7 @@ const Student = () => {
           {students.map((student, index) => {
             return (
               <tr key={index}>
+
                 <td id="picStyle">
                   <FontAwesomeIcon icon={faUserCircle} size='3x' />
                 </td>
@@ -73,6 +78,11 @@ const Student = () => {
                 </td>
                 <td id="schoolStyle">
                   {student.school}
+                <td>
+                  <Link to="/student">
+                    {student.firstname} {student.surname}
+                  </Link>
+
                 </td>
               </tr>
             );

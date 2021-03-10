@@ -8,6 +8,7 @@ import { IsMobile } from "../Hooks/IsMobile";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+
 // import { googleOAuth2 } from "../Actions/Google";
 const useStyles = makeStyles(() => ({
   home: {
@@ -28,6 +29,7 @@ const Login = () => {
     <div className={classes.home} id="homeContainer">
       <Background customStyles={details.bgStyle} />
       {IsMobile() ? <Dropdown /> : <Navbar />}
+      <div className="loginContainer"></div>
       <LoginContent />
       <Link to="/teacher">
         <Button>LOGIN</Button>
