@@ -65,13 +65,13 @@
 
 .skillArea {
   grid-area: skillArea;
-  margin-top: -15%;
+  margin-top: -5%;
 }
 
 .quizArea {
   grid-area: quizArea;
   top: 0;
-  margin-top: -15%;
+  margin-top: -14%;
 }
 
 .strengthArea {

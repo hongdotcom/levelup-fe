@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import VerticalNavbar from "../Components/VerticalNavbar";
+import { Link } from "react-router-dom";
 import TopBar from "../Components/Topbar";
-import { makeStyles } from "@material-ui/core/styles";
-import "./studentlist.css";
+// import { makeStyles } from "@material-ui/core/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-
-const useStyles = makeStyles(() => ({
-  detailContainer: {
-    position: "absolute",
-    top: "15vh",
-    left: "10vw",
-    width: "90vw",
-    height: "85vh",
-    marginTop: "-10%",
-    marginLeft: "-15%",
-  },
-}));
+import "./studentlist.css";
 
 const Student = () => {
   useEffect(() => {
@@ -49,13 +37,11 @@ const Student = () => {
     }
     return age;
   };
-
-  const classes = useStyles();
   return (
     <div>
       <VerticalNavbar />
       <TopBar />
-      <div className={classes.detailContainer}>
+      <div className="detailContainer">
         <input type="text" id="searchBar" title="Type in a name" />
         <FontAwesomeIcon icon={faSearch} size="3x" id="searchIcon" />
         <input type="text" id="filterBar" title="Filter" />
@@ -69,7 +55,14 @@ const Student = () => {
                     <FontAwesomeIcon icon={faUserCircle} size="3x" />
                   </td>
                   <td id="nameStyle">
-                    <Link to="/student">
+                    <Link
+                      to={{
+                        pathname: "/student",
+                        state: {
+                          id: `${student._id}`,
+                        },
+                      }}
+                    >
                       {student.firstname} {student.surname}
                     </Link>
                   </td>

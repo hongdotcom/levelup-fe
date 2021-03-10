@@ -10,12 +10,12 @@ import strength from "../static/images/spider.png";
 import polygon from "../static/images/polygon.png";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import "./student.css";
-
-const Student = () => {
-  useEffect(() => {
+const Student = (props) => {
+  const selectedId = props.location.state.id;
+  useEffect((selectedId) => {
     fetchItems();
     fetchCheckpoint();
-    fetchSkills();
+    fetchSkills(selectedId);
   }, []);
 
   const [student, setStudents] = useState([]);
@@ -23,8 +23,9 @@ const Student = () => {
   const [skills, setSkills] = useState([]);
 
   const fetchSkills = async () => {
+    console.log("http://localhost:4000/students/findskill/" + selectedId);
     const response = await fetch(
-      "http://localhost:4000/students/findskill/60430948f199b233ad6c076c",
+      "http://localhost:4000/students/findskill/" + selectedId,
       {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -38,7 +39,7 @@ const Student = () => {
 
   const fetchCheckpoint = async () => {
     const response = await fetch(
-      "http://localhost:4000/students/lastcheckpoint/60430948f199b233ad6c076c",
+      "http://localhost:4000/students/lastcheckpoint/" + selectedId,
       {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -52,7 +53,7 @@ const Student = () => {
 
   const fetchItems = async () => {
     const response = await fetch(
-      "http://localhost:4000/students/id/60430948f199b233ad6c076c",
+      "http://localhost:4000/students/id/" + selectedId,
       {
         method: "GET",
         headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -73,6 +74,8 @@ const Student = () => {
     }
     return age;
   };
+  const stuid = String(`${student._id}`).slice(-4);
+
   return (
     <div>
       <VerticalNavbar />
@@ -90,8 +93,8 @@ const Student = () => {
           <h1 className="headerText">Student Learning Record</h1>
         </div>
         <div className="studentArea">
-          <h2 className="h2Text">Student ID #{student._id}</h2>
-          <p className="pText">
+          <h2 className="h2Text">Student ID #{stuid}</h2>
+          <div className="pText">
             Age: {getAge(student.dob)}
             <br />
             Class :
@@ -104,7 +107,7 @@ const Student = () => {
             </a>
             <br />
             Background: Beginner
-          </p>
+          </div>
         </div>
         <div className="parentArea">
           <h2 className="h2Text">Parent Details</h2>
@@ -169,17 +172,15 @@ const Student = () => {
             &nbsp;&nbsp;&nbsp;&nbsp;
             <img src={present} alt="avt1" />
             &nbsp;&nbsp;
-            <p className="skillText">
+            <div className="skillText">
               {skills.map((skill, index) => {
                 return (
                   <div key={index}>
-                    <text>
-                      {skill.skill_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </text>
+                    {skill.skill_name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
                 );
               })}
-            </p>
+            </div>
           </div>
           <div className="quizArea">
             <h2 className="h2Text">Quiz Scores</h2>
@@ -200,29 +201,6 @@ const Student = () => {
           <p className="pText">“{checkpoint.comment}”</p>
         </div>
       </div>
-      {/* <div className={classes.detailContainer}>
-        <div className={classes.middleContainer}>
-          <div className={classes.innerContainer}>
-            <table>
-              <tbody>
-                <tr>
-                  <th> name</th>
-                  <th> age</th>
-                </tr>
-                {students.map((student, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>
-                        {student.firstname} {student.surname}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

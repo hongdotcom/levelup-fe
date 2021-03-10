@@ -1,8 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
-// import homeIcon from "./NavbarIcon";
-// import HomeTwoToneIcon from "@material-ui/icons/HomeTwoTone";
 import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() => ({
   VerNavBar: {
@@ -15,7 +13,7 @@ const useStyles = makeStyles(() => ({
     // marginRight: "1vw",
     position: "fixed",
   },
-  SvgIcon: {
+  SvgIcon1: {
     marginLeft: "3.5vw",
     transition: "all 0.3s ease-in-out",
     "&:hover": {
@@ -34,7 +32,7 @@ const VerticalNavbar = () => {
 
       <Link to="/">
         <svg
-          className={classes.SvgIcon}
+          className={classes.SvgIcon1}
           width="38"
           height="40"
           viewBox="0 0 38 40"
@@ -49,7 +47,7 @@ const VerticalNavbar = () => {
       </Link>
       <Link to="/">
         <svg
-          className={classes.SvgIcon}
+          className={classes.SvgIcon1}
           width="42"
           height="42"
           viewBox="0 0 59 59"
@@ -64,7 +62,7 @@ const VerticalNavbar = () => {
       </Link>
       <Link to="/">
         <svg
-          className={classes.SvgIcon}
+          className={classes.SvgIcon1}
           width="52"
           height="52"
           viewBox="0 0 52 52"
@@ -77,9 +75,9 @@ const VerticalNavbar = () => {
           />
         </svg>
       </Link>
-      <Link to="/">
+      <Link to="/studentlist">
         <svg
-          className={classes.SvgIcon}
+          className={classes.SvgIcon1}
           width="38"
           height="36"
           viewBox="0 0 38 36"
@@ -96,7 +94,7 @@ const VerticalNavbar = () => {
       </Link>
       <Link to="/">
         <svg
-          className={classes.SvgIcon}
+          className={classes.SvgIcon1}
           width="39"
           height="38"
           viewBox="0 0 39 38"
