@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import VerticalNavbar from "../Components/VerticalNavbar";
-import TopBar from "../Components/Topbar2";
+import TopBar from "../Components/Topbar";
 import { makeStyles } from "@material-ui/core/styles";
-import './style.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-// import {Link} from "react-router-dom";
-
-{/* <Link to="/teacher">
- <Button>LOGIN</Button>
-</Link>  */}
+import "./studentlist.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles(() => ({
-  detailContainer: {},
+  detailContainer: {
+    position: "absolute",
+    top: "15vh",
+    left: "10vw",
+    width: "90vw",
+    height: "85vh",
+    marginTop: "-10%",
+    marginLeft: "-15%",
+  },
 }));
-
-
-import { Link } from "react-router-dom";
 
 const Student = () => {
   useEffect(() => {
@@ -45,7 +45,7 @@ const Student = () => {
     var age = today.getFullYear() - birthDate.getFullYear();
     var m = today.getMonth() - birthDate.getMonth();
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+      age--;
     }
     return age;
   };
@@ -55,43 +55,37 @@ const Student = () => {
     <div>
       <VerticalNavbar />
       <TopBar />
-      <div className={classes.detailContainer}></div>
-      <input type="text" id="searchBar" title="Type in a name"  />
-      <FontAwesomeIcon icon={faSearch} size='3x' id='searchIcon'/>
-      <input type="text" id="filterBar" title="Filter" />
-      <FontAwesomeIcon icon={faChevronDown} size='3x' id='downIcon'/>
-      <table id="studentTable">
-        <tbody>
-          {students.map((student, index) => {
-            return (
-              <tr key={index}>
-
-                <td id="picStyle">
-                  <FontAwesomeIcon icon={faUserCircle} size='3x' />
-                </td>
-                <td id="nameStyle">
-                  {student.firstname} {student.surname} 
-                </td>
-                <td id="ageStyle">
-                  {getAge(student.dob)} years old
-                  {/* {student.dob.replace('T00:00:00.000Z','')} */}
-                </td>
-                <td id="schoolStyle">
-                  {student.school}
-                <td>
-                  <Link to="/student">
-                    {student.firstname} {student.surname}
-                  </Link>
-
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table> 
+      <div className={classes.detailContainer}>
+        <input type="text" id="searchBar" title="Type in a name" />
+        <FontAwesomeIcon icon={faSearch} size="3x" id="searchIcon" />
+        <input type="text" id="filterBar" title="Filter" />
+        <FontAwesomeIcon icon={faChevronDown} size="3x" id="downIcon" />
+        <table id="studentTable">
+          <tbody>
+            {students.map((student, index) => {
+              return (
+                <tr key={index}>
+                  <td id="picStyle">
+                    <FontAwesomeIcon icon={faUserCircle} size="3x" />
+                  </td>
+                  <td id="nameStyle">
+                    <Link to="/student">
+                      {student.firstname} {student.surname}
+                    </Link>
+                  </td>
+                  <td id="ageStyle">
+                    {getAge(student.dob)} years old
+                    {/* {student.dob.replace('T00:00:00.000Z','')} */}
+                  </td>
+                  <td id="schoolStyle">{student.school}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
-}; 
-
+};
 
 export default Student;
