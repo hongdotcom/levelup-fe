@@ -1,0 +1,76 @@
+#searchBar {
+  /* background-image: url("searchicon.png"); */
+  position: absolute;
+  width: 529px;
+  height: 55px;
+  left: 271px;
+  top: 224px;
+  background: rgba(229, 229, 229, 0.73);
+  border-radius: 6px;
+  border: 10px solid transparent;
+}
+
+#searchIcon {
+  position: absolute;
+  left: 290px;
+  top: 232px;
+}
+
+#filterBar {
+  /* background-image: url("arrowdownicon.png") no-repeat 0 0; */
+  position: absolute;
+  width: 356px;
+  height: 55px;
+  left: 835px;
+  top: 224px;
+  background: rgba(229, 229, 229, 0.73);
+  border-radius: 6px;
+  border: 10px solid transparent;
+}
+
+#downIcon {
+  position: absolute;
+  left: 1130px;
+  top: 232px;
+}
+
+#studentTable {
+  border-radius: 48px;
+  background: rgba(201, 227, 241, 0.65);
+  padding: 20px;
+  position: absolute;
+  width: 1318px;
+  height: 779px;
+  left: 271px;
+  top: 340px;
+}
+
+#nameStyle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 43px;
+  letter-spacing: -0.015em;
+  color: #000000;
+}
+
+#ageStyle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+#schoolStyle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+  color: rgba(0, 0, 0, 0.8);
+}
