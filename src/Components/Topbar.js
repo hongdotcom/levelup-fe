@@ -48,11 +48,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Topbar = () => {
+const Topbar = (props) => {
   const classes = useStyles();
+
   return (
     <div className={classes.Topbar}>
-      <h1 className={classes.Header}> Student Details</h1>
+      <h1 className={classes.Header}> {props.headerTitle}</h1>
       <div className={classes.AvatarCont}>
         <Avatar className={classes.Avatar} alt="Yuzu" src={avatar2} />
         <Avatar className={classes.Avatar} alt="Wayne" src={avatar3} />

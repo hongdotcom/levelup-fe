@@ -79,7 +79,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   LoginButton: {
-    witdth: "20vw",
+    backgroundColor: "#CCE2D9",
+    marginTop: "30px",
   },
   margin: {
     margin: theme.spacing(1),
@@ -91,23 +92,6 @@ const useStyles = makeStyles((theme) => ({
     width: "25ch",
   },
 }));
-// const responseFacebook = (response) => {
-//   console.log(response);
-//   console.log("this is facebook");
-//   // return <div> My Protected Component </div>;
-//   return <Redirect to="/teacher" />;
-//   // setData(response);
-//   // setPicture(response.picture.data.url);
-//   // if (response.accessToken) {
-//   //   return (
-//   //     // <Switch>
-//   //     // <Redirect to="/teacher" />
-//   //     // </Switch>
-//   //   );
-//   // } else {
-//   // setLogin(false);
-//   // }
-// };
 const LoginContent = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
@@ -177,7 +161,14 @@ const LoginContent = () => {
           />
         </FormControl>
         <Link to="/teacher">
-          <Button className={classes.LoginButton}>Login</Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            className={classes.LoginButton}
+          >
+            Login
+          </Button>
         </Link>
         <p>or</p>
         {/* <GoogleLogin

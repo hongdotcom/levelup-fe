@@ -37,10 +37,12 @@ const Student = () => {
     }
     return age;
   };
+  const headerTitle = "Student List";
+
   return (
     <div>
       <VerticalNavbar />
-      <TopBar />
+      <TopBar headerTitle={headerTitle} />
       <div className="detailContainer">
         <input type="text" id="searchBar" title="Type in a name" />
         <FontAwesomeIcon icon={faSearch} size="3x" id="searchIcon" />

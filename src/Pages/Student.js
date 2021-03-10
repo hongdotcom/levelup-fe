@@ -23,7 +23,7 @@ const Student = (props) => {
   const [skills, setSkills] = useState([]);
 
   const fetchSkills = async () => {
-    console.log("http://localhost:4000/students/findskill/" + selectedId);
+    // console.log("http://localhost:4000/students/findskill/" + selectedId);
     const response = await fetch(
       "http://localhost:4000/students/findskill/" + selectedId,
       {
@@ -32,9 +32,9 @@ const Student = (props) => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setSkills(data);
-    console.log(skills);
+    // console.log(skills);
   };
 
   const fetchCheckpoint = async () => {
@@ -46,9 +46,9 @@ const Student = (props) => {
       }
     );
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setCheckpoint(data);
-    console.log(checkpoint);
+    // console.log(checkpoint);
   };
 
   const fetchItems = async () => {
@@ -62,7 +62,7 @@ const Student = (props) => {
     const data = await response.json();
 
     setStudents(data);
-    console.log(student);
+    // console.log(student);
   };
   const getAge = (dateString) => {
     var today = new Date();
@@ -75,11 +75,11 @@ const Student = (props) => {
     return age;
   };
   const stuid = String(`${student._id}`).slice(-4);
-
+  const headerTitle = "Student Details";
   return (
     <div>
       <VerticalNavbar />
-      <TopBar />
+      <TopBar headerTitle={headerTitle} />
       <div className="grid-container">
         <div className="avatarArea">
           <img src={avatar1} alt="avt1" />
