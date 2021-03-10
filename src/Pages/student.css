@@ -1,7 +1,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.3fr 0.7fr 1fr 1fr 2fr;
   gap: 0px 0px;
   grid-template-areas:
     "avatarArea nameArea nameArea h2Area h2Area h2Area ."
@@ -55,7 +55,7 @@
 .prArea {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.8fr 1.2fr;
+  grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "skillArea skillArea skillArea"
@@ -65,11 +65,13 @@
 
 .skillArea {
   grid-area: skillArea;
+  margin-top: -15%;
 }
 
 .quizArea {
   grid-area: quizArea;
   top: 0;
+  margin-top: -15%;
 }
 
 .strengthArea {
@@ -120,4 +122,21 @@
   position: absolute;
   top: 25%;
   left: 16%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.skillText {
+  display: flex;
+  flex-direction: row;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
 }

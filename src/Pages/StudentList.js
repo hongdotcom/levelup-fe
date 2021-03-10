@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Student = () => {
   useEffect(() => {
     fetchItems();
@@ -31,7 +31,9 @@ const Student = () => {
             return (
               <tr key={index}>
                 <td>
-                  {student.firstname} {student.surname}
+                  <Link to="/student">
+                    {student.firstname} {student.surname}
+                  </Link>
                 </td>
               </tr>
             );
