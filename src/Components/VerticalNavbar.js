@@ -45,7 +45,7 @@ const VerticalNavbar = () => {
           />
         </svg>
       </Link>
-      <Link to="/">
+      <Link to="/teacher">
         <svg
           className={classes.SvgIcon1}
           width="42"

@@ -68,10 +68,7 @@ const Student = () => {
                       {student.firstname} {student.surname}
                     </Link>
                   </td>
-                  <td id="ageStyle">
-                    {getAge(student.dob)} years old
-                    {/* {student.dob.replace('T00:00:00.000Z','')} */}
-                  </td>
+                  <td id="ageStyle">{getAge(student.dob)} years old</td>
                   <td id="schoolStyle">{student.school}</td>
                 </tr>
               );

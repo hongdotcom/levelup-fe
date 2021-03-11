@@ -1,0 +1,218 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "teacherArea teacherArea teacherArea teacherArea quizArea quizArea quizArea"
+    "activityArea activityArea activityArea activityArea quizArea quizArea quizArea"
+    "activityArea activityArea activityArea activityArea quizArea quizArea quizArea"
+    "activityArea activityArea activityArea activityArea quizArea quizArea quizArea";
+  background-color: red;
+  position: absolute;
+  /* background-color: red; */
+  top: 15vh;
+  left: 10vw;
+  width: 90vw;
+  height: 85vh;
+}
+
+.teacherArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "textArea textArea textArea calendarArea calendarArea";
+  grid-area: teacherArea;
+}
+
+.textArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "picicktre Name Name"
+    "teacherdetail teacherdetail teacherdetail";
+  grid-area: textArea;
+}
+
+.teacherdetail {
+  grid-area: teacherdetail;
+}
+
+.picicktre {
+  grid-area: picicktre;
+}
+
+.Name {
+  grid-area: Name;
+}
+
+.calendarArea {
+  grid-area: calendarArea;
+}
+
+.activityArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "activityHeader activityHeader activityHeader activityHeader activityHeader"
+    "actdetail actdetail actdetail actdetail actdetail";
+  grid-area: activityArea;
+}
+
+.activityHeader {
+  grid-area: activityHeader;
+}
+
+.actdetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "icon1 text1 . . ."
+    "icon2 text2 . . ."
+    "icon3 text3 . . ."
+    "icon4 text4 . . ."
+    "icon5 text5 . . ."
+    "icon6 text6 . . .";
+  grid-area: actdetail;
+}
+
+.icon1 {
+  grid-area: icon1;
+}
+
+.icon2 {
+  grid-area: icon2;
+}
+
+.icon3 {
+  grid-area: icon3;
+}
+
+.icon4 {
+  grid-area: icon4;
+}
+
+.icon5 {
+  grid-area: icon5;
+}
+
+.icon6 {
+  grid-area: icon6;
+}
+
+.text1 {
+  grid-area: text1;
+}
+
+.text2 {
+  grid-area: text2;
+}
+
+.text3 {
+  grid-area: text3;
+}
+
+.text4 {
+  grid-area: text4;
+}
+
+.text5 {
+  grid-area: text5;
+}
+
+.text6 {
+  grid-area: text6;
+}
+
+.quizArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "quizHeader quizHeader quizHeader quizHeader"
+    "chart1 chart1 chart2 chart2"
+    "chart3 chart3 chat4 chat4"
+    "chat5 chat5 chart6 chart6";
+  grid-area: quizArea;
+}
+
+.quizHeader {
+  grid-area: quizHeader;
+}
+
+.chart1 {
+  grid-area: chart1;
+}
+
+.chart2 {
+  grid-area: chart2;
+}
+
+.chart3 {
+  grid-area: chart3;
+}
+
+.chat4 {
+  grid-area: chat4;
+}
+
+.chat5 {
+  grid-area: chat5;
+}
+
+.chart6 {
+  grid-area: chart6;
+}
+
+
+
+<div className="grid-container">
+<div className="teacherArea">
+  <div className="textArea">
+    <div className="teacherdetail">
+      <p>test 1</p>
+    </div>
+    <div className="picicktre">
+      <p>test 1</p>
+    </div>
+    <div className="Name">
+      <p>test 1</p>
+    </div>
+  </div>
+  <div className="calendarArea"></div>
+</div>
+<div className="activityArea">
+  <div className="activityHeader"></div>
+  <div className="actdetail">
+    <div className="icon1"></div>
+    <div className="icon2"></div>
+    <div className="icon3"></div>
+    <div className="icon4"></div>
+    <div className="icon5"></div>
+    <div className="icon6"></div>
+    <div className="text1"></div>
+    <div className="text2"></div>
+    <div className="text3"></div>
+    <div className="text4"></div>
+    <div className="text5"></div>
+    <div className="text6"></div>
+  </div>
+</div>
+<div className="quizArea">
+  <div className="quizHeader"></div>
+  <div className="chart1"></div>
+  <div className="chart2"></div>
+  <div className="chart3"></div>
+  <div className="chat4"></div>
+  <div className="chat5"></div>
+  <div className="chart6"></div>
+</div>
+</div>

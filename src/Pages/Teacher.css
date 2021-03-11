@@ -1,0 +1,154 @@
+.grid-container2 {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "teacherArea1 teacherArea1 teacherArea1 quizArea1 quizArea1 quizArea1"
+    "teacherArea1 teacherArea1 teacherArea1 quizArea1 quizArea1 quizArea1"
+    "activityArea1 activityArea1 activityArea1 quizArea1 quizArea1 quizArea1"
+    "activityArea1 activityArea1 activityArea1 quizArea1 quizArea1 quizArea1"
+    "activityArea1 activityArea1 activityArea1 quizArea1 quizArea1 quizArea1"; */
+  background-color: #cce2d9;
+  position: absolute;
+  top: 0vh;
+  left: 0vw;
+  width: 90vw;
+  height: 85vh;
+}
+
+.teacherArea1 {
+  background-color: rgb(255, 165, 0, 0.5);
+  width: 45vw;
+  height: 25vh;
+  border-radius: 30px;
+  position: absolute;
+  top: 6vh;
+  left: 2vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.teacherText1 {
+  position: relative;
+  width: 20vw;
+  height: 20vh;
+}
+.teacherimg {
+  position: absolute;
+  top: 4vh;
+  left: 3vw;
+
+  border-radius: 30px;
+  width: 8vw;
+}
+.quizArea1 {
+  grid-area: quizArea1;
+  background-color: white;
+}
+.quizbigimg {
+  position: absolute;
+  right: 3vw;
+  top: 6vh;
+  width: 35vw;
+  height: 75vh;
+  border-radius: 25px;
+}
+.activityArea1 {
+  background-color: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  top: 35vh;
+  left: 2vw;
+  width: 45vw;
+  height: 45vh;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.activityDetail1 {
+  display: grid;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.detailContainer1 {
+  position: absolute;
+  top: 15vh;
+  left: 10vw;
+  width: 90vw;
+  height: 85vh;
+  /* display: flex;
+  align-items: top;
+  justify-content: left; */
+}
+.headerText1 {
+  font-family: Montserrat, sans-serif;
+  font-size: 3vh;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.h2Text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 30px;
+  /* or 120% */
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.pText1 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+.pText2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 5px;
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.spiderContainer {
+  position: absolute;
+  top: 20%;
+  left: 0;
+}
+.spiderInnerContainer {
+  position: absolute;
+  top: 25%;
+  left: 16%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.skillText {
+  display: flex;
+  flex-direction: row;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -0.015em;
+
+  color: rgba(0, 0, 0, 0.8);
+}
