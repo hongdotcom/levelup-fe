@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { myContext } from "../Hooks/Context";
 const useStyles = makeStyles(() => ({
   VerNavBar: {
     width: "8vw",
@@ -12,6 +14,14 @@ const useStyles = makeStyles(() => ({
     marginLeft: "0.8vw",
     // marginRight: "1vw",
     position: "fixed",
+  },
+  noneli: {
+    marginLeft: "2vw",
+    transition: "all 0.3s ease-in-out",
+    "&:hover": {
+      opacity: "0.5",
+      transform: "scale(1.5)",
+    },
   },
   SvgIcon1: {
     marginLeft: "3.5vw",
@@ -24,6 +34,18 @@ const useStyles = makeStyles(() => ({
 }));
 const VerticalNavbar = () => {
   const classes = useStyles();
+  const userObject = useContext(myContext);
+  console.log(userObject);
+  const logout = () => {
+    axios
+      .get("http://localhost:4000/auth/logout", { withCredentials: true })
+      .then((res) => {
+        if (res.data) {
+          window.location.href = "http://localhost:3000/login";
+        }
+      });
+    console.log("logout");
+  };
   return (
     <div className={classes.VerNavBar}>
       <Link to="/">
@@ -92,9 +114,9 @@ const VerticalNavbar = () => {
           />
         </svg>
       </Link>
-      <Link to="/">
+      <li onClick={logout}>
         <svg
-          className={classes.SvgIcon1}
+          className={classes.noneli}
           width="39"
           height="38"
           viewBox="0 0 39 38"
@@ -109,7 +131,7 @@ const VerticalNavbar = () => {
             stroke="#7F8488"
           />
         </svg>
-      </Link>
+      </li>
       <p></p>
     </div>
   );

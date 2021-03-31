@@ -1,21 +1,22 @@
 import React from "react";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
-// import { GoogleLogin } from "react-google-login";
-import { Redirect } from "react-router-dom";
-import FacebookLogin from "react-facebook-login";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Logo from "../Logo";
 import { Button } from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
-// import { Input } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import googleImage from "../../static/images/googleImage.png";
+import githubImage from "../../static/images/githubImage.png";
+import twitterImage from "../../static/images/twitterImage.png";
+import facebookImage from "../../static/images/facebook.jpg";
+
 const useStyles = makeStyles((theme) => ({
   LoginContainer: {
     position: "absolute",
@@ -52,31 +53,38 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundColor: "rgba(255,255,255,0.7)",
   },
-  GoogleContatiner: {
-    width: "20vw",
-    height: "10vh",
-    backgroundColor: "#e82c2c",
-    borderRadius: "5px",
-    marginTop: "5vh",
-    paddingLeft: "6%",
-    paddingTop: "3px",
-    color: "#fff",
+  googleContainer: {
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontFamily: "Montserrat, sans-serif",
-    fontSize: "5vh",
-    overflow: "hidden",
+    width: "300px",
+    height: "50px",
+    background: "#ea4335",
+    position: "relative",
+    color: "white",
+    fontFamily: "Poppins, sans-serif",
+    fontSize: "1rem",
+    fontWeight: "400",
+    cursor: "pointer",
+    margin: "10px",
+    borderRadius: "8px",
   },
-  FacebookContatiner: {
-    width: "20vw",
-    height: "10%",
-    backgroundColor: "#138c9c",
+  googleContainerImg: {
+    width: "12.5%",
+    height: "100%",
+    objectFit: "contain",
+    left: "10px",
     borderRadius: "3px",
-    paddingLeft: "6%",
-    paddingTop: "3px",
-    color: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    position: "absolute",
+  },
+  githubContainer: {
+    background: "rgb(56, 56, 56)",
+  },
+  twitterContainer: {
+    background: "#00a2f4",
+  },
+  facebookContainer: {
+    background: "#4267B2",
   },
   LoginButton: {
     backgroundColor: "#CCE2D9",
@@ -101,7 +109,21 @@ const LoginContent = () => {
     weightRange: "",
     showPassword: false,
   });
+  const googleLogin = () => {
+    window.open("http://localhost:4000/auth/google", "_self");
+  };
 
+  const githubLogin = () => {
+    window.open("http://localhost:4000/auth/github", "_self");
+  };
+
+  const twitterLogin = () => {
+    window.location.href = "http://localhost:4000/auth/twitter";
+  };
+
+  const facebookLogin = () => {
+    window.location.href = "http://localhost:4000/auth/facebook";
+  };
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -171,24 +193,50 @@ const LoginContent = () => {
           </Button>
         </Link>
         <p>or</p>
-        {/* <GoogleLogin
-          clientId="599126138937-5441fi0karc5dfdbr622qs4a9d47ves3.apps.googleusercontent.com"
-          buttonText="LOGIN WITH GOOGLE"
-          isSignedIn={true}
-          icon="fa-google"
-          className={classes.GoogleContatiner}
-        /> */}
-        <FacebookLogin
-          appId="755126425132124"
-          // autoLoad={true}
-          fields="name,email,picture"
-          scope="public_profile,user_friends"
-          // callback={responseFacebook}
-          icon="fa-facebook"
-          className={classes.FacebookContatiner}
+        <div className={classes.googleContainer} onClick={googleLogin}>
+          <img
+            src={googleImage}
+            alt="Google Icon"
+            className={classes.googleContainerImg}
+          />
+          <p>Login With Google</p>
+        </div>
+
+        <div
+          className={`${classes.googleContainer} ${classes.githubContainer}`}
+          onClick={githubLogin}
         >
-          <Redirect to="/teacher" />
-        </FacebookLogin>
+          <img
+            src={githubImage}
+            alt="Github Icon"
+            className={classes.googleContainerImg}
+          />
+          <p>Login With Github</p>
+        </div>
+
+        <div
+          className={`${classes.googleContainer} ${classes.twitterContainer}`}
+          onClick={twitterLogin}
+        >
+          <img
+            src={twitterImage}
+            alt="Twitter Icon"
+            className={classes.googleContainerImg}
+          />
+          <p>Login With Twitter</p>
+        </div>
+
+        <div
+          className={`${classes.googleContainer} ${classes.facebookContainer}`}
+          onClick={facebookLogin}
+        >
+          <img
+            src={facebookImage}
+            alt="Facebook Icon"
+            className={classes.googleContainerImg}
+          />
+          <p>Login With Facebook</p>
+        </div>
       </div>
     </div>
   );

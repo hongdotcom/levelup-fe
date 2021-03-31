@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { menuData } from "../Constants/MenuData";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { myContext } from "../Hooks/Context";
 const useStyles = makeStyles(() => ({
   Nav: {
     background: "none",
@@ -39,17 +41,35 @@ const useStyles = makeStyles(() => ({
 
 const Navbar = () => {
   const classes = useStyles();
+  const userObject = useContext(myContext);
+  console.log(userObject);
+  const logout = () => {
+    axios
+      .get("http://localhost:4000/auth/logout", { withCredentials: true })
+      .then((res) => {
+        if (res.data) {
+          window.location.href = "/";
+        }
+      });
+  };
   return (
     <div className={classes.Nav}>
       <Link to="/">
         <Logo />
       </Link>
       <ul className={classes.ul}>
-        {menuData.map((item, index) => (
-          <Link to={item.link} className={classes.NavLink} key={index}>
-            <li>{item.title}</li>
-          </Link>
-        ))}
+        {userObject
+          ? null
+          : menuData.map((item, index) => (
+              <Link to={item.link} className={classes.NavLink} key={index}>
+                <li>{item.title}</li>
+              </Link>
+            ))}
+        {userObject ? (
+          <li onClick={logout} className={classes.NavLink}>
+            Logout
+          </li>
+        ) : null}
       </ul>
     </div>
   );

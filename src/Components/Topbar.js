@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import avatar2 from "../static/images/avatar2.png";
@@ -6,7 +6,7 @@ import avatar3 from "../static/images/avatar3.png";
 import avatar4 from "../static/images/avatar4.png";
 import avatar5 from "../static/images/avatar5.png";
 import avatar6 from "../static/images/avatar6.png";
-
+import { myContext } from "../Hooks/Context";
 const useStyles = makeStyles(() => ({
   Topbar: {
     position: "relative",
@@ -50,10 +50,14 @@ const useStyles = makeStyles(() => ({
 
 const Topbar = (props) => {
   const classes = useStyles();
-
+  const userObject = useContext(myContext);
+  console.log(userObject);
   return (
     <div className={classes.Topbar}>
-      <h1 className={classes.Header}> {props.headerTitle}</h1>
+      <h1 className={classes.Header}>
+        {" "}
+        {props.headerTitle} {userObject ? userObject.username : null}
+      </h1>
       <div className={classes.AvatarCont}>
         <Avatar className={classes.Avatar} alt="Yuzu" src={avatar2} />
         <Avatar className={classes.Avatar} alt="Wayne" src={avatar3} />

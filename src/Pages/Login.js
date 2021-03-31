@@ -1,13 +1,8 @@
 import React from "react";
-// import bg from "../static/images/bg.jpg";
 import Background from "../Components/Background";
-// import Navbar from "../Components/Navbar";
-// import Dropdown from "../Components/Dropdown";
 import LoginContent from "../Components/LoginContent/LoginContent";
 // import { IsMobile } from "../Hooks/IsMobile";
 import { makeStyles } from "@material-ui/core/styles";
-// import { Button } from "@material-ui/core";
-// import { Link } from "react-router-dom";
 import Logo from "../Components/Logo";
 
 // import { googleOAuth2 } from "../Actions/Google";
